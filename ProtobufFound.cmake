@@ -3,16 +3,16 @@ set(Protobuf_INCLUDE_DIR ${CMAKE_HOME_DIRECTORY}/../../Dependencies/protobuf/pro
 set(Protobuf_LIBRARIES ${CMAKE_HOME_DIRECTORY}/../../Dependencies/protobuf/protobuf-3.20.3/lib/windows)
 set(Protobuf_DIR ${CMAKE_HOME_DIRECTORY}/../../Dependencies/protobuf/protobuf-3.20.3/src)
 
-# ²éÕÒ Protobuf - ¶àÖÖ·½Ê½³¢ÊÔ
+# ï¿½ï¿½ï¿½ï¿½ Protobuf - ï¿½ï¿½ï¿½Ö·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
 set(Protobuf_FOUND FALSE)
 
-# ·½Ê½ 1: ³¢ÊÔ CONFIG Ä£Ê½
+# ï¿½ï¿½Ê½ 1: ï¿½ï¿½ï¿½ï¿½ CONFIG Ä£Ê½
 find_package(Protobuf CONFIG QUIET)
 if(TARGET protobuf::libprotobuf)
     set(Protobuf_FOUND TRUE)
     message(STATUS "Found Protobuf via CONFIG mode")
 else()
-    # ·½Ê½ 2: ³¢ÊÔÄ£¿éÄ£Ê½
+    # ï¿½ï¿½Ê½ 2: ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½Ä£Ê½
     find_package(Protobuf REQUIRED)
     if(Protobuf_FOUND)
         set(Protobuf_FOUND TRUE)
@@ -20,11 +20,11 @@ else()
     endif()
 endif()
 
-# Èç¹û»¹ÊÇÃ»ÕÒµ½£¬ÊÖ¶¯ÉèÖÃÂ·¾¶
+# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Òµï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 if(NOT Protobuf_FOUND)
     message(WARNING "Protobuf not found via standard methods, trying manual setup")
     
-    # ÊÖ¶¯ÉèÖÃ¿ÉÄÜµÄÂ·¾¶
+    # ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Üµï¿½Â·ï¿½ï¿½
     set(Protobuf_DIR "${CMAKE_HOME_DIRECTORY}/../../Dependencies/protobuf/protobuf-3.20.3" "${CMAKE_HOME_DIRECTORY}/../../Dependencies/protobuf/protobuf-3.20.3/src" "${CMAKE_HOME_DIRECTORY}/../../Dependencies/protobuf/protobuf-3.20.3/lib/windows")
     foreach(test_dir IN LISTS Protobuf_DIR)
         if(EXISTS "${test_dir}/lib/cmake/Protobuf")
@@ -43,3 +43,4 @@ endif()
 if(NOT Protobuf_FOUND)
     message(FATAL_ERROR "Protobuf not found. Please install Protobuf or set Protobuf_DIR properly")
 endif()
+

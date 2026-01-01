@@ -1,26 +1,26 @@
 
-# ÆôÓÃµ¼ÈëÄ¿±ê
+# ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
 if(POLICY CMP0097)
     cmake_policy(SET CMP0097 NEW)
 endif()
 
-# ÐÞ¸´4: ¼ò»¯²éÕÒÂß¼­£¬ÓÅÏÈÊ¹ÓÃCONFIGÄ£Ê½
+# ï¿½Þ¸ï¿½4: ï¿½ò»¯²ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½CONFIGÄ£Ê½
 find_package(gRPC CONFIG 
     PATHS "${gRPC_DIR}"
     NO_DEFAULT_PATH
     QUIET
 )
 
-# ²éÕÒ gRPC - ¶àÖÖ·½Ê½³¢ÊÔ
+# ï¿½ï¿½ï¿½ï¿½ gRPC - ï¿½ï¿½ï¿½Ö·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
 #set(GRPC_FOUND FALSE)
 
-# ·½Ê½ 1: ³¢ÊÔ CONFIG Ä£Ê½
+# ï¿½ï¿½Ê½ 1: ï¿½ï¿½ï¿½ï¿½ CONFIG Ä£Ê½
 #find_package(gRPC CONFIG QUIET)
 #if(TARGET gRPC::grpc++)
 #    set(GRPC_FOUND TRUE)
 #    message(STATUS "Found gRPC via CONFIG mode")
 #else()
-#    # ·½Ê½ 2: ³¢ÊÔÄ£¿éÄ£Ê½
+#    # ï¿½ï¿½Ê½ 2: ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½Ä£Ê½
 #    find_package(gRPC REQUIRED)
 #    if(GRPC_FOUND)
 #        set(GRPC_FOUND TRUE)
@@ -29,11 +29,11 @@ find_package(gRPC CONFIG
 #    endif()
 #endif()
 
-# Èç¹û»¹ÊÇÃ»ÕÒµ½£¬ÊÖ¶¯ÉèÖÃÂ·¾¶
+# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Òµï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 #if(NOT GRPC_FOUND)
 #    message(WARNING "gRPC not found via standard methods, trying manual setup")
 #    
-#    # ÊÖ¶¯ÉèÖÃ¿ÉÄÜµÄÂ·¾¶
+#    # ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Üµï¿½Â·ï¿½ï¿½
 #    set(gRPC_DIR "${CMAKE_HOME_DIRECTORY}/../../Dependencies/grpc" "${CMAKE_HOME_DIRECTORY}/../../Dependencies/grpc/include" "${CMAKE_HOME_DIRECTORY}/../../Dependencies/grpc/lib/Windows")
 #    foreach(test_dir IN LISTS gRPC_DIR)
 #        if(EXISTS "${test_dir}/cmake")
@@ -54,12 +54,12 @@ find_package(gRPC CONFIG
 #endif()
 
 
-# ÐÞ¸´1: ¶¨ÒåÊÖ¶¯²éÕÒº¯Êý
+# ï¿½Þ¸ï¿½1: ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½Òºï¿½ï¿½ï¿½
 function(MANUALLY_FIND_GRPC)
-    # ÉèÖÃ¿ÉÄÜµÄ°üº¬Ä¿Â¼
+    # ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ÜµÄ°ï¿½ï¿½ï¿½Ä¿Â¼
     set(GRPC_INCLUDE_DIR "${GRPC_ROOT}/include")
     
-    # ÉèÖÃ¿âÎÄ¼þËÑË÷Â·¾¶£¨¸ù¾Ý¹¹½¨ÀàÐÍ£©
+    # ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½
     if(WIN32)
 	    set(GRPC_LIBRARY_DIRS 
 	        "${GRPC_ROOT}/lib/Windows/Debug"
@@ -72,7 +72,7 @@ function(MANUALLY_FIND_GRPC)
     		)
     endif(WIN32)
     
-    # ¶¨ÒåÐèÒª²éÕÒµÄ¿âÁÐ±í
+    # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ÒµÄ¿ï¿½ï¿½Ð±ï¿½
     set(GRPC_LIBRARIES_TO_FIND
         grpc++
         grpc
@@ -84,7 +84,7 @@ function(MANUALLY_FIND_GRPC)
         absl_throw_delegate
     )
     
-    # ²éÕÒËùÓÐ¿âÎÄ¼þ
+    # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½Ä¼ï¿½
     foreach(lib ${GRPC_LIBRARIES_TO_FIND})
         find_library(GRPC_${lib}_LIBRARY
             NAMES ${lib}
@@ -96,7 +96,7 @@ function(MANUALLY_FIND_GRPC)
         endif()
     endforeach()
     
-    # ²éÕÒ²å¼þ
+    # ï¿½ï¿½ï¿½Ò²ï¿½ï¿½
     set(GRPC_CPP_PLUGIN_EXECUTABLE "${GRPC_ROOT}/bin/Windows/grpc_cpp_plugin")
     if(NOT EXISTS "${GRPC_CPP_PLUGIN_EXECUTABLE}")
         set(GRPC_CPP_PLUGIN_EXECUTABLE "${GRPC_CPP_PLUGIN_EXECUTABLE}.exe")
@@ -106,7 +106,7 @@ function(MANUALLY_FIND_GRPC)
     message(STATUS "222 Found gRPC includes: ${GRPC_INCLUDE_DIR}")
     message(STATUS "222 Found gRPC plugin: ${GRPC_CPP_PLUGIN_EXECUTABLE}")
     
-    # ´´½¨µ¼ÈëÄ¿±ê
+    # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
     if(GRPC_LIBRARIES AND GRPC_INCLUDE_DIR)
         add_library(gRPC::grpc++ UNKNOWN IMPORTED)
         set_target_properties(gRPC::grpc++ PROPERTIES
@@ -119,3 +119,4 @@ function(MANUALLY_FIND_GRPC)
         set(gRPC_DIR "${GRPC_ROOT}" PARENT_SCOPE)
     endif()
 endfunction()
+
